@@ -1,19 +1,32 @@
 {
-  "name": "Nuclear Knowledge Hub | مركز المعرفة النووية",
+  "name": "Nuclear Knowledge Hub — مركز المعرفة النووية | المهندس محمود شلتوت",
   "short_name": "Nuclear Hub",
-  "description": "منصة عربية وإنجليزية لتعلم الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية",
+  "description": "منصة تعليمية عربية وإنجليزية في الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية بإشراف المهندس محمود إسماعيل شلتوت لطلاب الجامعات والموهوبين في السعودية والخليج.",
   "lang": "ar",
   "dir": "rtl",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#f2f3ee",
-  "theme_color": "#233a31",
+  "background_color": "#05080f",
+  "theme_color": "#05080f",
   "icons": [
     {
       "src": "/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo-icon.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
       "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }

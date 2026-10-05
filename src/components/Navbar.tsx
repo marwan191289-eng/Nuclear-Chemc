@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { UserProfile } from "../types";
+import brandLogoImg from "../assets/images/nuclear_brand_logo_1791238367993.jpg";
 import {
   Bell,
   Sparkles,
@@ -83,30 +84,13 @@ export function Navbar({
           className="flex items-center gap-3 text-start group cursor-pointer shrink-0"
           onClick={() => onTabChange("home")}
         >
-          <div className="relative flex size-10 items-center justify-center rounded-xl border border-slate-800 bg-[#0b111d] shadow-[0_0_20px_rgba(0,229,255,0.18)] group-hover:border-[#00e5ff]/60 transition">
-            <svg viewBox="0 0 36 36" className="size-6" aria-hidden="true">
-              <ellipse
-                cx="18"
-                cy="18"
-                rx="14"
-                ry="6"
-                fill="none"
-                stroke="#00e5ff"
-                strokeWidth="1.6"
-                transform="rotate(-28 18 18)"
-              />
-              <ellipse
-                cx="18"
-                cy="18"
-                rx="14"
-                ry="6"
-                fill="none"
-                stroke="#f02a98"
-                strokeWidth="1.6"
-                transform="rotate(28 18 18)"
-              />
-              <circle cx="18" cy="18" r="2.8" fill="#00e5ff" />
-            </svg>
+          <div className="relative flex size-10 items-center justify-center overflow-hidden rounded-xl border border-[#00e8f5]/40 bg-[#0b111d] shadow-[0_0_20px_rgba(0,229,255,0.22)] group-hover:border-[#00e5ff] transition">
+            <img
+              src={brandLogoImg}
+              alt="Nuclear Knowledge Hub Logo"
+              referrerPolicy="no-referrer"
+              className="size-full object-cover"
+            />
           </div>
           <div className="leading-tight">
             <div className="text-[15px] font-bold text-white group-hover:text-[#00e5ff] transition">

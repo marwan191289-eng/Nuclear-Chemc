@@ -1,5 +1,6 @@
 import React from "react";
-import { Atom, Mail, MessageSquare, Phone } from "lucide-react";
+import { Mail, MessageSquare, Phone } from "lucide-react";
+import brandLogoImg from "../assets/images/nuclear_brand_logo_1791238367993.jpg";
 
 interface FooterProps {
   onTabChange: (tab: string) => void;
@@ -40,8 +41,13 @@ export function Footer({ onTabChange, language }: FooterProps) {
         {/* Brand */}
         <div className="space-y-4 sm:col-span-2 md:col-span-2">
           <div className="flex items-center gap-3">
-            <div className="flex size-10 items-center justify-center rounded-xl bg-cyan-950 border border-cyan-500/40 text-cyan-300">
-              <Atom className="size-6 text-[#00f0ff]" />
+            <div className="flex size-11 items-center justify-center overflow-hidden rounded-xl bg-[#05080f] border border-[#00e8f5]/45 shadow-[0_0_18px_rgba(0,232,245,0.2)]">
+              <img
+                src={brandLogoImg}
+                alt="Nuclear Knowledge Hub Logo"
+                referrerPolicy="no-referrer"
+                className="size-full object-cover"
+              />
             </div>
             <div>
               <div className="text-base font-extrabold text-white">{isEn ? "Eng. Mahmoud Shaltoot" : "المهندس محمود شلتوت"}</div>

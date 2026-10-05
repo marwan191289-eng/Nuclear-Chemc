@@ -1,15 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 76" fill="none" role="img" aria-labelledby="title">
-  <title id="title">Nuclear Knowledge Hub — مركز المعرفة النووية</title>
-  <rect x="3" y="3" width="70" height="70" rx="23" fill="#233A31"/>
-  <rect x="3.5" y="3.5" width="69" height="69" rx="22.5" stroke="#829A87"/>
-  <circle cx="38" cy="38" r="20" fill="#A87858" fill-opacity=".12"/>
-  <ellipse cx="38" cy="38" rx="25" ry="9.5" stroke="#B88968" stroke-width="1.8" transform="rotate(-34 38 38)"/>
-  <ellipse cx="38" cy="38" rx="25" ry="9.5" stroke="#A9C2AD" stroke-width="1.6" transform="rotate(34 38 38)"/>
-  <ellipse cx="38" cy="38" rx="23" ry="7.5" stroke="#D7E2D5" stroke-opacity=".68" stroke-width="1.2"/>
-  <circle cx="38" cy="38" r="4.2" fill="#F1E8DA"/>
-  <circle cx="38" cy="38" r="2.1" fill="#B88968"/>
-  <circle cx="57.5" cy="25.4" r="2.8" fill="#C69572"/>
-  <circle cx="17.5" cy="38" r="2.5" fill="#ADC5AF"/>
-  <text x="88" y="34" fill="#F1F0E9" font-family="Manrope, IBM Plex Sans Arabic, sans-serif" font-size="17" font-weight="700" letter-spacing=".28">NUCLEAR KNOWLEDGE HUB</text>
-  <text x="89" y="57" fill="#B6C6B9" font-family="IBM Plex Sans Arabic, sans-serif" font-size="14" font-weight="500">مركز المعرفة النووية</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 80" fill="none" role="img" aria-labelledby="title">
+  <title id="title">Nuclear Knowledge Hub — مركز المعرفة النووية | المهندس محمود شلتوت</title>
+  <defs>
+    <radialGradient id="logoGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00e8f5" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#05080f" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="logoBorder" x1="4" y1="4" x2="76" y2="76" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00e8f5" />
+      <stop offset="100%" stop-color="#ef2b88" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="72" height="72" rx="20" fill="#05080f" />
+  <rect x="4.75" y="4.75" width="70.5" height="70.5" rx="19.25" stroke="url(#logoBorder)" stroke-width="1.5" />
+  <circle cx="40" cy="40" r="26" fill="url(#logoGlow)" />
+  <ellipse cx="40" cy="40" rx="25" ry="9.5" stroke="#00e8f5" stroke-width="2.2" transform="rotate(-32 40 40)" />
+  <ellipse cx="40" cy="40" rx="25" ry="9.5" stroke="#ef2b88" stroke-width="2.2" transform="rotate(32 40 40)" />
+  <circle cx="40" cy="40" r="5" fill="#00e8f5" />
+  <circle cx="40" cy="40" r="2.2" fill="#f4f7fb" />
+  <circle cx="59" cy="27" r="3" fill="#00e8f5" />
+  <circle cx="21" cy="53" r="2.8" fill="#ef2b88" />
+  <text x="92" y="34" fill="#f4f7fb" font-family="Space Grotesk, IBM Plex Sans Arabic, sans-serif" font-size="17" font-weight="700" letter-spacing="1.8">NUCLEAR KNOWLEDGE HUB</text>
+  <text x="92" y="54" fill="#00e8f5" font-family="IBM Plex Sans Arabic, sans-serif" font-size="14" font-weight="600">مركز المعرفة النووية · م. محمود شلتوت</text>
+  <text x="92" y="69" fill="#94a3b8" font-family="Space Grotesk, monospace" font-size="10" font-weight="600" letter-spacing="2.2">NUCLEAR CHEMISTRY &amp; REACTOR ENGINEERING</text>
 </svg>
