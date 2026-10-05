@@ -181,11 +181,14 @@ export function Footer({ onTabChange, language }: FooterProps) {
       </div>
 
       {/* Live Open Graph Social Preview Card & One-Click Share Hub */}
-      <div className="max-w-[1240px] mx-auto mb-12 rounded-2xl border border-[#00e8f5]/30 bg-[#070d18]/90 p-5 sm:p-7 shadow-[0_0_45px_rgba(0,232,245,0.12)]">
+      <div
+        id="og-preview-card"
+        className="max-w-[1240px] mx-auto mb-12 rounded-2xl border border-[#00e8f5]/30 bg-[#070d18]/90 p-5 sm:p-7 shadow-[0_0_45px_rgba(0,232,245,0.12)]"
+      >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
           {/* Live Social Card Preview (Exact WhatsApp / Facebook / X / Telegram Card Layout) */}
           <div className="lg:col-span-6">
-            <div className="nuclear-visual overflow-hidden rounded-xl border border-[#00e8f5]/40 bg-[#05080f] shadow-xl">
+            <div className="relative overflow-hidden rounded-xl border border-[#00e8f5]/40 bg-[#05080f] shadow-xl">
               <div className="relative aspect-[1200/630] w-full overflow-hidden bg-[#05080f]">
                 <img
                   src={ogBannerImg}

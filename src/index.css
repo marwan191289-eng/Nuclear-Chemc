@@ -387,6 +387,8 @@ article:hover,
 }
 
 .nuclear-visual {
+  position: relative;
+  overflow: hidden;
   isolation: isolate;
   background: #07101c;
 }

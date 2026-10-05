@@ -622,7 +622,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-[100dvh] bg-[var(--bg-main)] text-[var(--ink)] flex flex-col font-sans selection:bg-[#00e5ff]/30 selection:text-white">
+    <div className="relative min-h-[100dvh] w-full max-w-[100vw] overflow-x-hidden bg-[var(--bg-main)] text-[var(--ink)] flex flex-col font-sans selection:bg-[#00e5ff]/30 selection:text-white">
       {/* Animated Nuclear Chemistry Background Layer */}
       <NuclearBackgroundCanvas />
 
