@@ -65,7 +65,7 @@ const indexPath = path.join(outputDir, "index.html");
 const rootHtml = await readFile(indexPath, "utf8");
 await mkdir(outputDir, { recursive: true });
 
-const socialImage = `${siteUrl}/og-image.jpg`;
+const socialImage = `${siteUrl}/og-banner.jpg`;
 
 for (const page of pageData) {
   let html = rootHtml.replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(page.title)}</title>`);

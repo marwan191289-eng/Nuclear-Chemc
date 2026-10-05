@@ -1,6 +1,7 @@
-import React from "react";
-import { Mail, MessageSquare, Phone } from "lucide-react";
+import React, { useState } from "react";
+import { Check, Copy, Download, Mail, MessageSquare, Phone, Share2 } from "lucide-react";
 import brandLogoImg from "../assets/images/nuclear_brand_logo_1791238367993.jpg";
+import ogBannerImg from "../assets/images/og_social_card_1791237959475.jpg";
 
 interface FooterProps {
   onTabChange: (tab: string) => void;
@@ -9,6 +10,24 @@ interface FooterProps {
 
 export function Footer({ onTabChange, language }: FooterProps) {
   const isEn = language === "en";
+  const [copiedShareUrl, setCopiedShareUrl] = useState(false);
+
+  const shareUrl = "https://nuclear-chemc.vercel.app/?v=2";
+  const shareTitle =
+    "Nuclear Knowledge Hub — مركز المعرفة النووية | المهندس محمود شلتوت";
+  const shareDesc =
+    "منصة تعليمية عربية وإنجليزية في الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية بإشراف المهندس محمود إسماعيل شلتوت لطلاب الجامعات والموهوبين في السعودية والخليج.";
+
+  const handleCopyShareUrl = async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setCopiedShareUrl(true);
+      window.setTimeout(() => setCopiedShareUrl(false), 2600);
+    } catch {
+      setCopiedShareUrl(true);
+      window.setTimeout(() => setCopiedShareUrl(false), 2600);
+    }
+  };
 
   React.useEffect(() => {
     const replaceReplitBadgeText = () => {
@@ -156,6 +175,154 @@ export function Footer({ onTabChange, language }: FooterProps) {
             <div>
               <span className="text-slate-500 block text-[10px]">{isEn ? "Service region:" : "النطاق الجغرافي:"}</span>
               <span className="text-slate-300">{isEn ? "Saudi Arabia and the Gulf" : "المملكة العربية السعودية ودول الخليج العربي"}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Live Open Graph Social Preview Card & One-Click Share Hub */}
+      <div className="max-w-[1240px] mx-auto mb-12 rounded-2xl border border-[#00e8f5]/30 bg-[#070d18]/90 p-5 sm:p-7 shadow-[0_0_45px_rgba(0,232,245,0.12)]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          {/* Live Social Card Preview (Exact WhatsApp / Facebook / X / Telegram Card Layout) */}
+          <div className="lg:col-span-6">
+            <div className="nuclear-visual overflow-hidden rounded-xl border border-[#00e8f5]/40 bg-[#05080f] shadow-xl">
+              <div className="relative aspect-[1200/630] w-full overflow-hidden bg-[#05080f]">
+                <img
+                  src={ogBannerImg}
+                  alt={shareTitle}
+                  referrerPolicy="no-referrer"
+                  className="h-full w-full object-cover"
+                />
+                <span
+                  dir="ltr"
+                  className="absolute top-3 left-3 rounded-md border border-[#00e8f5]/45 bg-[#05080f]/80 px-2.5 py-1 font-mono text-[10px] font-bold text-[#00e8f5] backdrop-blur-md"
+                >
+                  OG BANNER · 1200×630 (113 KB)
+                </span>
+              </div>
+              <div className="border-t border-slate-800/90 bg-[#09101d] p-4 space-y-1">
+                <div className="font-mono text-[11px] text-[#00e8f5]" dir="ltr">
+                  nuclear-chemc.vercel.app
+                </div>
+                <div className="text-sm font-bold text-white line-clamp-1">
+                  {shareTitle}
+                </div>
+                <div className="text-xs text-slate-400 line-clamp-2 leading-relaxed">
+                  {shareDesc}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Share Controls & Downloadable Brand Assets */}
+          <div className="lg:col-span-6 space-y-4">
+            <div className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#00e8f5]">
+              <Share2 className="size-3.5" />
+              <span>
+                {isEn
+                  ? "OFFICIAL SOCIAL SHARE & OPEN GRAPH CARD"
+                  : "بطاقة المعاينة الرسمية ومشاركة الرابط (Open Graph)"}
+              </span>
+            </div>
+
+            <h3 className="text-xl sm:text-2xl font-bold text-white">
+              {isEn
+                ? "Ready for WhatsApp, Facebook, X, Telegram & LinkedIn"
+                : "معاينة احترافية فورية على واتساب وفيسبوك وتويتر وتيليجرام"}
+            </h3>
+
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              {isEn
+                ? "Optimized 1200×630 baseline JPEG (113 KB — under WhatsApp's 300 KB limit) so your preview banner appears immediately when sharing."
+                : "تم ضغط وضبط البانر الرسمي بدقة 1200×630 وبحجم 113 KB فقط (أقل من حد واتساب الصارم 300 KB) ليظهر فوراً عند مشاركة الرابط بعد النشر على Vercel."}
+            </p>
+
+            {/* One-Click Social Share Buttons */}
+            <div className="flex flex-wrap items-center gap-2.5 pt-1">
+              <button
+                type="button"
+                onClick={() => void handleCopyShareUrl()}
+                className="inline-flex items-center gap-2 rounded-xl bg-[#00e8f5] px-4 py-2.5 text-xs font-bold text-[#031218] shadow-[0_0_20px_rgba(0,232,245,0.35)] hover:brightness-110 transition cursor-pointer"
+              >
+                {copiedShareUrl ? (
+                  <>
+                    <Check className="size-4" />
+                    <span>
+                      {isEn ? "Link Copied!" : "تم نسخ رابط المعاينة المحدّث!"}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="size-4" />
+                    <span>
+                      {isEn
+                        ? "Copy Fresh Share Link"
+                        : "نسخ الرابط المحدّث للمشاركة"}
+                    </span>
+                  </>
+                )}
+              </button>
+
+              <a
+                href={`https://wa.me/?text=${encodeURIComponent(`${shareTitle}\n${shareUrl}`)}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-500/45 bg-emerald-500/15 px-3.5 py-2.5 text-xs font-bold text-emerald-300 hover:bg-emerald-500/25 transition"
+              >
+                <span>{isEn ? "Share on WhatsApp" : "مشاركة على واتساب"}</span>
+              </a>
+
+              <a
+                href={`https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareTitle)}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-[#00e8f5]/40 bg-[#00e8f5]/10 px-3.5 py-2.5 text-xs font-bold text-[#00e8f5] hover:bg-[#00e8f5]/20 transition"
+              >
+                <span>{isEn ? "Telegram" : "تيليجرام"}</span>
+              </a>
+
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-slate-700 bg-slate-900 px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:border-[#00e8f5]/50 transition"
+              >
+                <span>{isEn ? "Facebook" : "فيسبوك"}</span>
+              </a>
+
+              <a
+                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareTitle)}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-xl border border-slate-700 bg-slate-900 px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:border-[#00e8f5]/50 transition"
+              >
+                <span>X / Twitter</span>
+              </a>
+            </div>
+
+            {/* Direct Download Links for OG Banner & Logo */}
+            <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-slate-800/80 text-xs">
+              <a
+                href="/og-banner.jpg"
+                download="nuclear-knowledge-hub-og-banner.jpg"
+                className="inline-flex items-center gap-1.5 text-slate-300 hover:text-[#00e8f5] transition"
+              >
+                <Download className="size-3.5 text-[#00e8f5]" />
+                <span>
+                  {isEn ? "Download OG Banner (1200×630)" : "تنزيل صورة البانر (1200×630)"}
+                </span>
+              </a>
+              <span className="text-slate-600">·</span>
+              <a
+                href="/logo-icon.jpg"
+                download="nuclear-knowledge-hub-logo.jpg"
+                className="inline-flex items-center gap-1.5 text-slate-300 hover:text-[#ef2b88] transition"
+              >
+                <Download className="size-3.5 text-[#ef2b88]" />
+                <span>
+                  {isEn ? "Download Official Logo" : "تنزيل اللوجو الرسمي"}
+                </span>
+              </a>
             </div>
           </div>
         </div>

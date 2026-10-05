@@ -4,13 +4,28 @@
   "installCommand": "npm install --legacy-peer-deps",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "headers": [
+    {
+      "source": "/(og-banner\\.jpg|og-image\\.jpg|og-image\\.png|logo-icon\\.jpg|apple-touch-icon\\.png|favicon\\.svg|favicon\\.ico)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, must-revalidate"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",
       "destination": "/api/[...path]"
     },
     {
-      "source": "/((?!api/).*)",
+      "source": "/((?!api/|assets/|og-banner\\.jpg|og-image\\.jpg|og-image\\.png|logo-icon\\.jpg|favicon\\.ico|favicon\\.svg|apple-touch-icon\\.png|site\\.webmanifest|robots\\.txt|sitemap\\.xml).*)",
       "destination": "/index.html"
     }
   ]
