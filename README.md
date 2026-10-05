@@ -1,11 +1,54 @@
-<div align="center">
+# Nuclear Knowledge Hub — مركز المعرفة النووية
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+منصة تعليمية عربية وإنجليزية متخصصة في **الكيمياء النووية، هندسة المفاعلات، والسلامة الإشعاعية** بإشراف **المهندس محمود شلتوت (خبرة 12+ سنة)**.
 
-  <h1>Built with AI Studio</h2>
+---
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## أبرز المميزات (Key Features)
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+1. **معدل انضمام طلاب واقعي وموثوق (Deterministic Hourly Learner Counter)**
+   - تم إلغاء أي زيادة وهمية كل عدة ثوانٍ نهائياً.
+   - يعتمد العداد على دالة حتمية مشتركة بين الخادم والمتصفح (`GET /api/stats/public` و `useStudentCounter`) تضيف **0 أو 1 أو 2 أو 3 طلاب كحد أقصى في الساعة الواحدة فقط**، مع ثبات سنوات الخبرة عند **12+ سنة**.
 
-</div>
+2. **بوابة هبوط وتسجيل دخول وحوكمة صلاحيات (Landing Page, Auth & RBAC)**
+   - صفحة هبوط متكاملة تدعم **الوضع النهاري والليلي (Day / Night Theme)** واللغتين **العربية والإنجليزية (RTL / LTR)**.
+   - نظام حسابات وجلسات محمية بتوقيع رقمي (`HttpOnly Signed Session Cookies`) وكلمات مرور مشفرة عبر `scrypt`.
+   - إدارة صلاحيات متكاملة (**طالب `student`، مدرّب/مهندس `instructor`، ولي أمر `parent`، مشرف عام `admin`**) تُمنح وتُرتب حصرياً من خلال المهندس والأدمن عبر لوحة التحكم المحمية.
+
+3. **لوحة تحكم إدارية محمية بالكامل (Protected Admin Panel)**
+   - محمية ببوابة مصادقة خادمية (`/api/admin/login` و `/api/admin/overview`).
+   - **إدارة المحتوى والدورات**: إضافة وحذف وتحديث الدورات التدريبية مباشرة.
+   - **إدارة المستخدمين والصلاحيات**: ترقية وتعديل صلاحيات الحسابات المسجلة.
+   - **التقارير التحليلية اليومية**: رسوم ومؤشرات أداء يومية (المستخدمون النشطون، مشاهدات الصفحات، إتمام الدروس، الحجوزات).
+   - **نظام الإشعارات الذكي**: بث إشعارات وتنبيهات فورية للطلاب تظهر في مركز الإشعارات.
+   - **النسخ الاحتياطي الدوري**: إنشاء وتنزيل واستعادة نسخ احتياطية كاملة (`JSON Snapshot`) لقاعدة البيانات.
+
+4. **تحسين محركات البحث والهوية البصرية (SEO, OpenGraph & Brand Identity)**
+   - توليد تلقائي لملفات `robots.txt` و `sitemap.xml` أثناء البناء (`scripts/generate-seo.mjs`).
+   - بيانات منظمة `Schema.org JSON-LD` (`EducationalOrganization`, `WebSite`, `Course`, `Person`).
+   - شعار وأيقونة (`logo.svg`, `favicon.svg`) وصورة مشاركة اجتماعية (`og-image.png`, `og-image.svg`) مخصصة للهوية البصرية النووية الراقية.
+
+---
+
+## التشغيل المحلي والنشر على Vercel
+
+### التشغيل المحلي (Local Development)
+```bash
+npm install
+npm run dev
+```
+يعمل الخادم على المنفذ `http://localhost:3000`.
+
+### الاختبارات الآلية وفحص البناء (Testing & Verification)
+```bash
+npm test
+npm run build
+```
+
+### النشر على Vercel (Vercel Deployment)
+التطبيق مهيأ بالكامل للنشر المباشر على Vercel عبر ملف `vercel.json` ونقطة الدخول `api/[...path].ts` التي توجه جميع طلبات `/api/*` إلى تطبيق Express الخادمي (`server.ts`).
+
+متغيرات البيئة الموصى بإضافتها في إعدادات Vercel:
+- `ADMIN_PASSWORD`: كلمة مرور لوحة الإدارة (الافتراضية للتطوير المحلي: `nuclear-admin-2025`)
+- `ADMIN_SESSION_SECRET`: مفتاح سري لتوقيع جلسات المستخدمين والأدمن
+- `GEMINI_API_KEY`: مفتاح Gemini لتوليد خطط المذاكرة الذكية

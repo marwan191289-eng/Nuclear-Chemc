@@ -1,0 +1,19 @@
+{
+  "name": "Nuclear Knowledge Hub | مركز المعرفة النووية",
+  "short_name": "Nuclear Hub",
+  "description": "منصة عربية وإنجليزية لتعلم الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f2f3ee",
+  "theme_color": "#233a31",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "users": [
+    {
+      "id": "b8d3f709-81f8-4bc4-b1a7-d5be9bb24b8f",
+      "name": "Second Test Student",
+      "email": "test-e403ea8d-0c1f-4752-825c-c8963c308b99@example.test",
+      "password_hash": "4bcb5babd6390da888a163cdc948df9f:d10dc7079234bf1ec7a8f8e8bb11836b8ef790b5bed9125ac722a2ea667b0af8e419aa4a104fb09d3a32e982a8ddcc606f0b5ed4b2fe778c10c7c10e8c343b74",
+      "role": "student",
+      "disabled": false,
+      "created_at": "2026-10-05T20:44:08.243Z"
+    },
+    {
+      "id": "40ba6163-e541-4dcc-9fd7-b03ca91250aa",
+      "name": "Test Student",
+      "email": "test-c6c1343e-8375-437d-a8d4-a4b67496472a@example.test",
+      "password_hash": "8048de203bd0ed948e181fdf9c8be1d7:e8542250fcc1c36b08abce1a902edcf4fb69ec941e55690c13a42d76697ac720f279ab19ba23f0e6f46a67520cf8c5f29ac882ff331211df8bb2ece215d9fce1",
+      "role": "admin",
+      "disabled": false,
+      "created_at": "2026-10-05T20:44:08.147Z"
+    },
+    {
+      "id": "84498412-10cf-448b-9a2a-f7863159438a",
+      "name": "Second Test Student",
+      "email": "test-0fa07b71-1c2c-4096-9ec8-293c11382611@example.test",
+      "password_hash": "1926e663cc40b7bf0fe0c60b6f45d9f7:a3785ff498cde52804076221e46f4c3c9a3969f745d8a5da5a3f7a4a04083991287abc26e71d1461d6a0a60cb6c24fe7d28ccab2fe4771b7e83ff43a439ed20a",
+      "role": "student",
+      "disabled": false,
+      "created_at": "2026-10-05T20:21:13.163Z"
+    },
+    {
+      "id": "b06dbcf4-b7e8-495d-8e8c-d4916c63e92b",
+      "name": "Test Student",
+      "email": "test-a8724433-da92-424b-8b38-fff4eedaca5e@example.test",
+      "password_hash": "ab9abb46b86d738b79be029b57f7f563:723e75550c0a239f4fcf194551df3ddaba90ecc9030d199258eded53fe159dabd9e3a80ac9d7c339a5a5c6b243ae3c3a61345de618d4737ccb69668aad0d1a41",
+      "role": "admin",
+      "disabled": false,
+      "created_at": "2026-10-05T20:21:13.091Z"
+    },
+    {
+      "id": "1494dfe0-a78d-4f3f-8ae1-046aa595c81c",
+      "name": "Second Test Student",
+      "email": "test-18b983d3-9b8f-4cc6-b63e-af68fbc1b121@example.test",
+      "password_hash": "f57b10cb84ba8ef032a9f0dfe568d5ea:2448cfda2070c5c283fcb579a091faa55c4b82f5cc6dda212731b0815f7f4380435b85adb3798ec2b1cfebfafd0a0b02c7e25ce6c3b2281e46e96c8edb55d622",
+      "role": "student",
+      "disabled": false,
+      "created_at": "2026-10-05T19:38:04.027Z"
+    },
+    {
+      "id": "9dbd6c1a-5bc8-425e-aad9-9f13a955b883",
+      "name": "Test Student",
+      "email": "test-9bd5b81c-f8b2-44a7-8cbc-838d7c33ada0@example.test",
+      "password_hash": "7f50ec7eaf149bf1313780792652459d:41e0ae381bb84bfe0d93d10bd00e096c45be888f1a631802e44fc219371b3e5835818541bb9ce647634664b86023471883462871eb6f2eb5bfea855cc5b81cab",
+      "role": "admin",
+      "disabled": false,
+      "created_at": "2026-10-05T19:38:03.950Z"
+    },
+    {
+      "id": "e1b91cc1-f359-46fb-8da1-a13f12fc6abc",
+      "name": "Second Test Student",
+      "email": "test-41a1d4f0-a44b-45aa-b819-b4cfd68b901c@example.test",
+      "password_hash": "257993f8cb201c946f20af9b7fb6d944:9f40fb90a1632205e0a32c75cb0d0afc6f86f1bee3e44fbe360d402f051f26d37a840de3044ec2f84428850e2d38317d71f4238ee4f6b8315eecaa50d5092dd2",
+      "role": "student",
+      "disabled": false,
+      "created_at": "2026-10-05T19:07:06.994Z"
+    },
+    {
+      "id": "ba7f5915-3d54-4dfb-9671-b50aa86b8cc8",
+      "name": "Test Student",
+      "email": "test-10b0f746-9183-438d-bed7-e6e25bdf8bba@example.test",
+      "password_hash": "9281e973e74e4ef7bfdd8cf277aae569:56e2e5d36df9d669fff01f1178d55df0bf395c7094432e909cd70625369685bb289bd84ac8dfc2898b1bbafb908ea03c3902c547863d83d3f80726a63f1d068f",
+      "role": "admin",
+      "disabled": false,
+      "created_at": "2026-10-05T19:07:06.916Z"
+    },
+    {
+      "id": "35ad213c-7da8-4a42-b9b5-ffdafec62155",
+      "name": "Second Test Student",
+      "email": "test-fee90b90-4973-42fb-adf3-80bfd400bbd7@example.test",
+      "password_hash": "3b8a0ce7ddfc61fc9d70c8364fa7e275:6705e28147d83f67d57a42ddda8aca33b4fae4894f28d3cde1287c964220dbca590b53e01ca07a0929c54c2ef0f176583b7a36e59a7ef234fadcc9e681da3be2",
+      "role": "student",
+      "disabled": false,
+      "created_at": "2026-10-05T18:23:59.804Z"
+    },
+    {
+      "id": "3e26d64a-ab50-4396-93a8-a675aefff61c",
+      "name": "Test Student",
+      "email": "test-06e1d97a-5c5d-4199-8c0b-ab21be31b523@example.test",
+      "password_hash": "e3bb0c525d4aecf360ba9e0d2f4f143d:156a006ebc9e265d1805868c41ed8763526a0a075093d2eb98850b89a4f11ccd95ad228c2ce8a2e16f086b7d1760ea4a58488e0da1e5d50d7d4410a25fd7ab01",
+      "role": "admin",
+      "disabled": false,
+      "created_at": "2026-10-05T18:23:59.735Z"
+    }
+  ],
+  "students": [
+    {
+      "id": "st-1",
+      "name": "أحمد بن خالد السعدون",
+      "email": "ahmed.k@kfupm.edu.sa",
+      "course": "التفاعلات والمفاعلات النووية",
+      "progress": 85,
+      "attendance": 96,
+      "quizAvg": 94,
+      "status": "نشط"
+    },
+    {
+      "id": "st-2",
+      "name": "نورة بنت عبد العزيز الدوسري",
+      "email": "noura.d@ksu.edu.sa",
+      "course": "أساسيات الكيمياء النووية",
+      "progress": 100,
+      "attendance": 100,
+      "quizAvg": 98,
+      "status": "نشط"
+    },
+    {
+      "id": "st-3",
+      "name": "عمر فهد المطيري",
+      "email": "omar.f@iau.edu.sa",
+      "course": "السلامة الإشعاعية والوقاية",
+      "progress": 70,
+      "attendance": 88,
+      "quizAvg": 89,
+      "status": "نشط"
+    },
+    {
+      "id": "st-4",
+      "name": "ريم بنت سلطان العتيبي",
+      "email": "reem.s@kau.edu.sa",
+      "course": "التفاعلات والمفاعلات النووية",
+      "progress": 45,
+      "attendance": 92,
+      "quizAvg": 85,
+      "status": "نشط"
+    },
+    {
+      "id": "st-5",
+      "name": "سعود بن فيصل الشمري",
+      "email": "saud.sh@qu.edu.sa",
+      "course": "أساسيات الكيمياء النووية",
+      "progress": 60,
+      "attendance": 84,
+      "quizAvg": 79,
+      "status": "نشط"
+    }
+  ],
+  "announcements": [
+    {
+      "id": "ann-1",
+      "titleAr": "فتح التسجيل في دفعة هندسة المفاعلات النووية",
+      "titleEn": "Enrollment Open for Nuclear Reactor Engineering Cohort",
+      "bodyAr": "تبدأ المحاضرات المباشرة الأسبوع القادم بإشراف المهندس محمود إسماعيل شلتوت مع تطبيقات عملية على محاكي قلب المفاعل.",
+      "bodyEn": "Live lectures start next week with Eng. Mahmoud Ismail Shaltoot featuring interactive reactor core lab exercises.",
+      "priority": "important",
+      "createdAt": "2026-10-04T16:00:00.000Z",
+      "author": "المهندس محمود شلتوت"
+    },
+    {
+      "id": "ann-2",
+      "titleAr": "تحديث بنك مسائل عمر النصف والسلامة الإشعاعية",
+      "titleEn": "Updated Half-Life & Radiation Safety Problem Bank",
+      "bodyAr": "تمت إضافة 25 مسألة محلولة بالتفصيل وفق معايير الوكالة الدولية للطاقة الذرية IAEA ومقررات الجامعات السعودية والخليجية.",
+      "bodyEn": "Added 25 step-by-step solved problems aligned with IAEA safety standards and GCC university curricula.",
+      "priority": "normal",
+      "createdAt": "2026-10-03T12:30:00.000Z",
+      "author": "إدارة المحتوى الأكاديمي"
+    }
+  ],
+  "backups": [
+    {
+      "id": "bk-auto-20261005",
+      "timestamp": "2026-10-05T00:00:00.000Z",
+      "sizeBytes": 18432,
+      "accountsCount": 5,
+      "checksum": "sha256:9f86d081884c7d659a2feaa0c55ad015"
+    }
+  ],
+  "bookingSchedule": {
+    "timeSlots": [
+      "04:00 PM (KSA)",
+      "05:30 PM (KSA)",
+      "07:00 PM (KSA)",
+      "08:30 PM (KSA)",
+      "10:00 PM (KSA)"
+    ],
+    "disabledDates": [],
+    "disabledDateSlots": [],
+    "weeklyHolidays": [
+      5
+    ],
+    "officialHolidays": [
+      {
+        "id": "hol-saudi-national",
+        "title": "اليوم الوطني السعودي (إجازة رسمية)",
+        "startDate": "2026-09-23",
+        "endDate": "2026-09-23",
+        "type": "official"
+      },
+      {
+        "id": "hol-annual-break",
+        "title": "الإجازة السنوية للمنصة والمراجعة الأكاديمية",
+        "startDate": "2026-12-28",
+        "endDate": "2026-12-31",
+        "type": "annual"
+      }
+    ]
+  },
+  "notifications": [
+    {
+      "id": "notif-init-1",
+      "category": "system",
+      "titleAr": "تفعيل نظام الإشعارات الثلاثي (التطبيق + واتساب + البريد)",
+      "titleEn": "Triple-Channel Notification System Active (In-App + WhatsApp + Email)",
+      "bodyAr": "يتم إرسال جميع تنبيهات النقاش الدراسي والحجوزات والدورات تلقائياً داخل التطبيق وعبر الواتساب والبريد الإلكتروني المسجل.",
+      "bodyEn": "All study discussion messages, bookings, and course updates are dispatched in-app, via WhatsApp, and to your registered email.",
+      "createdAt": "2026-10-05T20:21:12.891Z",
+      "recipientEmail": "Mahmoudshaltoot.cemc@gmail.com",
+      "whatsappPhone": "+966594756878",
+      "channels": [
+        "in_app",
+        "whatsapp",
+        "email"
+      ]
+    }
+  ],
+  "bookings": [
+    {
+      "id": "bk-sample-1001",
+      "studentName": "عبد الله بن فهد القحطاني",
+      "studentEmail": "abdullah.q@kfupm.edu.sa",
+      "whatsappPhone": "+966551234567",
+      "countryName": "المملكة العربية السعودية",
+      "bookingType": "جلسة فردية مباشرة 1-on-1 (مراجعة المفاعلات)",
+      "topic": "مراجعة مسائل حساب الكتلة الحرجة وعمر النصف قبل الاختبار النصفي",
+      "date": "2026-10-08",
+      "timeSlot": "07:00 PM (KSA)",
+      "status": "pending",
+      "meetingId": "room-nuclear-4821",
+      "createdAt": "2026-10-05T20:44:07.898Z"
+    }
+  ]
+}

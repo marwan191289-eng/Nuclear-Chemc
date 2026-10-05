@@ -1,0 +1,6 @@
+{
+  "name": "Nuclear Knowledge Hub — مركز المعرفة النووية",
+  "description": "منصة تعليمية عربية وإنجليزية في الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية بإشراف المهندس محمود إسماعيل شلتوت لطلاب الجامعات والموهوبين في السعودية والخليج.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
