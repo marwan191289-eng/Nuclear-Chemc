@@ -4,20 +4,32 @@ import { fileURLToPath } from "node:url";
 
 const projectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputDir = path.join(projectDir, "dist");
-const configuredUrl = process.env.VITE_PUBLIC_SITE_URL?.trim() || "https://nuclear-chemc.vercel.app";
 
-let siteUrl = "https://nuclear-chemc.vercel.app";
-if (configuredUrl) {
+const DEFAULT_PRODUCTION_URL = "https://nuclear-chemc.vercel.app";
+const rawConfiguredUrl = process.env.VITE_PUBLIC_SITE_URL?.trim();
+
+let siteUrl = DEFAULT_PRODUCTION_URL;
+if (
+  rawConfiguredUrl &&
+  !rawConfiguredUrl.includes("nuclear-knowledge-hub.vercel.app") &&
+  !rawConfiguredUrl.includes("localhost")
+) {
   try {
-    const parsed = new URL(configuredUrl);
-    siteUrl = parsed.origin;
-  } catch (error) {
-    console.warn(`Invalid VITE_PUBLIC_SITE_URL: ${error.message}. Falling back to https://nuclear-chemc.vercel.app.`);
-    siteUrl = "https://nuclear-chemc.vercel.app";
+    const parsed = new URL(rawConfiguredUrl);
+    if (parsed.protocol === "https:") {
+      siteUrl = parsed.origin;
+    }
+  } catch {
+    siteUrl = DEFAULT_PRODUCTION_URL;
   }
 }
 
 const pageData = [
+  {
+    route: "share",
+    title: "Nuclear Knowledge Hub — مركز المعرفة النووية | م. شلتوت",
+    description: "منصة تعليمية متخصصة في الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية بإشراف المهندس محمود إسماعيل شلتوت لطلاب الجامعات بالسعودية والخليج.",
+  },
   {
     route: "courses",
     title: "دورات الكيمياء النووية والمفاعلات | مركز المعرفة النووية",
@@ -26,7 +38,7 @@ const pageData = [
   {
     route: "simulator",
     title: "محاكي المفاعل النووي واضمحلال النظائر | مركز المعرفة النووية",
-    description: "جرّب المحاكاة التفاعلية لقلب المفاعل النووي (U-235) وحسابات عمر النصف واضمحلال النظائر المشعة لطلاب الهندسة والعلوم.",
+    description: "جرّب المحاكاة التفاعلية لقلب المفاعل النووي (U-235) وحسابات عمر النصف واضمحلال النظائر المشعة لطلاب الهندسة والعلوم بالسعودية والخليج.",
   },
   {
     route: "instructor",
@@ -36,18 +48,18 @@ const pageData = [
   {
     route: "booking",
     title: "حجز جلسة خاصة في الكيمياء النووية | المهندس محمود شلتوت",
-    description: "احجز جلسة فردية 1-on-1 أو استشارة أكاديمية مباشرة مع المهندس محمود إسماعيل شلتوت في الكيمياء النووية وهندسة المفاعلات.",
+    description: "احجز جلسة فردية 1-on-1 أو استشارة أكاديمية مباشرة مع المهندس محمود إسماعيل شلتوت في الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية.",
   },
   {
     route: "student-portal",
     title: "بوابة الطالب والدروس النووية | مركز المعرفة النووية",
-    description: "تابع الدروس والمقررات والتقدم الدراسي والتمارين التفاعلية في بوابة الطالب بمركز المعرفة النووية.",
+    description: "تابع الدروس والمقررات والتقدم الدراسي والتمارين التفاعلية في بوابة الطالب بمركز المعرفة النووية بإشراف المهندس محمود إسماعيل شلتوت.",
     private: true,
   },
   {
     route: "admin",
-    title: "لوحة تحكم الإدارة والمشرف | مركز المعرفة النووية",
-    description: "بوابة الإدارة المعتمدة للمهندس والمشرف لإدارة الحجوزات والمواعيد والدورات في مركز المعرفة النووية.",
+    title: "لوحة تحكم الإدارة والمشرفين | مركز المعرفة النووية",
+    description: "بوابة الإدارة المعتمدة للمهندس والمشرف لإدارة الحجوزات والمواعيد والدورات والتقارير الأكاديمية في مركز المعرفة النووية.",
     private: true,
   },
 ];
@@ -65,28 +77,29 @@ const indexPath = path.join(outputDir, "index.html");
 const rootHtml = await readFile(indexPath, "utf8");
 await mkdir(outputDir, { recursive: true });
 
-const socialImage = `${siteUrl}/og-banner.jpg`;
+const socialImage = `${siteUrl}/og-image.jpg`;
 
 for (const page of pageData) {
   let html = rootHtml.replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(page.title)}</title>`);
   html = updateMeta(html, "name", "description", page.description);
-  html = updateMeta(html, "name", "robots", page.private ? "noindex, nofollow" : "index, follow, max-image-preview:large");
+  html = updateMeta(html, "name", "robots", page.private ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
   html = updateMeta(html, "property", "og:title", page.title);
   html = updateMeta(html, "property", "og:description", page.description);
   html = updateMeta(html, "name", "twitter:title", page.title);
   html = updateMeta(html, "name", "twitter:description", page.description);
   html = html.replace(
-    /<h1 class="sr-only">[^<]*<\/h1>/,
-    `<h1 class="sr-only">${escapeHtml(page.title)}</h1>`,
+    /<h1[^>]*>[^<]*<\/h1>/,
+    `<h1>${escapeHtml(page.title)}</h1>`,
   );
 
-  const canonicalPath = `/${page.route}`;
+  const canonicalPath = page.route === "share" ? "/share" : `/${page.route}`;
   const canonicalUrl = `${siteUrl}${canonicalPath}`;
   html = html.replace(
     /<link rel="canonical" href="[^"]*" \/>/,
-    `<link rel="canonical" href="${canonicalUrl}" />`,
+    `<link rel="canonical" href="${page.route === "share" ? `${siteUrl}/` : canonicalUrl}" />`,
   );
   html = updateMeta(html, "property", "og:url", canonicalUrl);
+  html = updateMeta(html, "property", "twitter:url", canonicalUrl);
   html = updateMeta(html, "name", "twitter:url", canonicalUrl);
   html = updateMeta(html, "property", "og:image", socialImage);
   html = updateMeta(html, "property", "og:image:secure_url", socialImage);
@@ -128,4 +141,4 @@ html = updateMeta(html, "property", "og:image:secure_url", socialImage);
 html = updateMeta(html, "name", "twitter:image", socialImage);
 await writeFile(indexPath, html);
 
-console.info("Generated static route SEO HTML, sitemap.xml, and robots.txt.");
+console.info(`Generated static route SEO HTML, sitemap.xml, and robots.txt for ${siteUrl}.`);

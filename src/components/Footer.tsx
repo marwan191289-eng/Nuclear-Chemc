@@ -12,15 +12,27 @@ export function Footer({ onTabChange, language }: FooterProps) {
   const isEn = language === "en";
   const [copiedShareUrl, setCopiedShareUrl] = useState(false);
 
-  const shareUrl = "https://nuclear-chemc.vercel.app/?v=2";
+  const freshShareUrl = "https://nuclear-chemc.vercel.app/?v=3";
   const shareTitle =
-    "Nuclear Knowledge Hub — مركز المعرفة النووية | المهندس محمود شلتوت";
+    "Nuclear Knowledge Hub — مركز المعرفة النووية | م. شلتوت";
   const shareDesc =
-    "منصة تعليمية عربية وإنجليزية في الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية بإشراف المهندس محمود إسماعيل شلتوت لطلاب الجامعات والموهوبين في السعودية والخليج.";
+    "منصة تعليمية متخصصة في الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية بإشراف المهندس محمود إسماعيل شلتوت لطلاب الجامعات بالسعودية والخليج.";
 
   const handleCopyShareUrl = async () => {
     try {
-      await navigator.clipboard.writeText(shareUrl);
+      if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
+        await navigator.share({
+          title: shareTitle,
+          text: shareDesc,
+          url: freshShareUrl,
+        });
+        return;
+      }
+    } catch {
+      // Fallback to clipboard copy if user cancels or browser blocks native share
+    }
+    try {
+      await navigator.clipboard.writeText(freshShareUrl);
       setCopiedShareUrl(true);
       window.setTimeout(() => setCopiedShareUrl(false), 2600);
     } catch {
@@ -267,7 +279,7 @@ export function Footer({ onTabChange, language }: FooterProps) {
               </button>
 
               <a
-                href={`https://wa.me/?text=${encodeURIComponent(`${shareTitle}\n${shareUrl}`)}`}
+                href={`https://wa.me/?text=${encodeURIComponent(`${freshShareUrl}\n\n${shareTitle}`)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-500/45 bg-emerald-500/15 px-3.5 py-2.5 text-xs font-bold text-emerald-300 hover:bg-emerald-500/25 transition"
@@ -276,7 +288,7 @@ export function Footer({ onTabChange, language }: FooterProps) {
               </a>
 
               <a
-                href={`https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareTitle)}`}
+                href={`https://t.me/share/url?url=${encodeURIComponent(freshShareUrl)}&text=${encodeURIComponent(shareTitle)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 rounded-xl border border-[#00e8f5]/40 bg-[#00e8f5]/10 px-3.5 py-2.5 text-xs font-bold text-[#00e8f5] hover:bg-[#00e8f5]/20 transition"
@@ -285,7 +297,7 @@ export function Footer({ onTabChange, language }: FooterProps) {
               </a>
 
               <a
-                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(freshShareUrl)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 rounded-xl border border-slate-700 bg-slate-900 px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:border-[#00e8f5]/50 transition"
@@ -294,7 +306,7 @@ export function Footer({ onTabChange, language }: FooterProps) {
               </a>
 
               <a
-                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareTitle)}`}
+                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(freshShareUrl)}&text=${encodeURIComponent(shareTitle)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-1.5 rounded-xl border border-slate-700 bg-slate-900 px-3.5 py-2.5 text-xs font-semibold text-slate-200 hover:border-[#00e8f5]/50 transition"
@@ -306,8 +318,8 @@ export function Footer({ onTabChange, language }: FooterProps) {
             {/* Direct Download Links for OG Banner & Logo */}
             <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-slate-800/80 text-xs">
               <a
-                href="/og-banner.jpg"
-                download="nuclear-knowledge-hub-og-banner.jpg"
+                href="/og-card.jpg"
+                download="nuclear-knowledge-hub-og-card.jpg"
                 className="inline-flex items-center gap-1.5 text-slate-300 hover:text-[#00e8f5] transition"
               >
                 <Download className="size-3.5 text-[#00e8f5]" />

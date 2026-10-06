@@ -1685,6 +1685,64 @@ Write in ${en ? "English" : "Arabic"}.`;
     saveStore();
     res.status(204).end();
   });
+
+  app.get(`${prefix}/share`, (req, res) => {
+    const vParam = typeof req.query.v === "string" && req.query.v.trim() ? req.query.v.trim() : "3";
+    const siteOrigin = "https://nuclear-chemc.vercel.app";
+    const sharePageUrl = `${siteOrigin}/?v=${encodeURIComponent(vParam)}`;
+    const shareImageUrl = `${siteOrigin}/og-image.jpg?v=${encodeURIComponent(vParam)}`;
+    const title = "Nuclear Knowledge Hub — مركز المعرفة النووية | م. شلتوت";
+    const description =
+      "منصة تعليمية متخصصة في الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية بإشراف المهندس محمود إسماعيل شلتوت لطلاب الجامعات بالسعودية والخليج.";
+
+    const distIndex = path.resolve(__dirname, "dist", "index.html");
+    const rootIndex = path.resolve(__dirname, "index.html");
+    const htmlPath = fs.existsSync(distIndex) ? distIndex : rootIndex;
+
+    if (fs.existsSync(htmlPath)) {
+      let html = fs.readFileSync(htmlPath, "utf8");
+      html = html
+        .replace(/<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${sharePageUrl}" />`)
+        .replace(/<meta property="twitter:url" content="[^"]*" \/>/, `<meta property="twitter:url" content="${sharePageUrl}" />`)
+        .replace(/<meta name="twitter:url" content="[^"]*" \/>/, `<meta name="twitter:url" content="${sharePageUrl}" />`)
+        .replace(/<meta property="og:image" content="[^"]*" \/>/, `<meta property="og:image" content="${shareImageUrl}" />`)
+        .replace(/<meta property="og:image:secure_url" content="[^"]*" \/>/, `<meta property="og:image:secure_url" content="${shareImageUrl}" />`)
+        .replace(/<meta name="twitter:image" content="[^"]*" \/>/, `<meta name="twitter:image" content="${shareImageUrl}" />`);
+      res.setHeader("Content-Type", "text/html; charset=utf-8");
+      res.setHeader("Cache-Control", "public, max-age=0, must-revalidate");
+      res.status(200).send(html);
+      return;
+    }
+
+    res.setHeader("Content-Type", "text/html; charset=utf-8");
+    res.status(200).send(`<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>${title}</title>
+  <meta name="description" content="${description}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="${sharePageUrl}" />
+  <meta property="og:site_name" content="Nuclear Knowledge Hub — مركز المعرفة النووية" />
+  <meta property="og:title" content="${title}" />
+  <meta property="og:description" content="${description}" />
+  <meta property="og:image" content="${shareImageUrl}" />
+  <meta property="og:image:secure_url" content="${shareImageUrl}" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@NuclearChemHub" />
+  <meta name="twitter:title" content="${title}" />
+  <meta name="twitter:description" content="${description}" />
+  <meta name="twitter:image" content="${shareImageUrl}" />
+  <meta http-equiv="refresh" content="0;url=${siteOrigin}/" />
+</head>
+<body>
+  <h1>${title}</h1>
+</body>
+</html>`);
+  });
 }
 
 // Vite middleware in dev or static files in production

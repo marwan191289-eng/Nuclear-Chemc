@@ -77,46 +77,46 @@ const TAB_ROUTES: Record<string, string> = {
 
 const TAB_SEO: Record<string, { ar: string; en: string; descriptionAr: string; descriptionEn: string }> = {
   home: {
-    ar: "الكيمياء النووية وهندسة المفاعلات | مركز المعرفة",
-    en: "Nuclear Chemistry & Reactor Engineering | Knowledge Hub",
-    descriptionAr: "تعلم الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية مع المهندس محمود شلتوت عبر مقررات ودروس عربية وإنجليزية.",
-    descriptionEn: "Learn nuclear chemistry, reactor engineering, and radiation safety with Eng. Mahmoud Shaltoot through bilingual courses and lessons.",
+    ar: "Nuclear Knowledge Hub — مركز المعرفة النووية | م. شلتوت",
+    en: "Nuclear Knowledge Hub — Nuclear Chemistry & Reactors",
+    descriptionAr: "منصة تعليمية متخصصة في الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية بإشراف المهندس محمود إسماعيل شلتوت لطلاب الجامعات بالسعودية والخليج.",
+    descriptionEn: "Specialized educational platform in nuclear chemistry, reactor engineering, and radiation safety by Eng. Mahmoud Ismail Shaltoot for Gulf students.",
   },
   courses: {
-    ar: "دورات الكيمياء النووية وهندسة المفاعلات",
-    en: "Nuclear Chemistry & Reactor Engineering Courses",
-    descriptionAr: "استكشف دورات الكيمياء النووية والمفاعلات والسلامة الإشعاعية لطلاب الجامعات في السعودية والخليج.",
-    descriptionEn: "Explore nuclear chemistry, reactor engineering, and radiation safety courses for university learners across Saudi Arabia and the Gulf.",
+    ar: "دورات الكيمياء النووية والمفاعلات | مركز المعرفة النووية",
+    en: "Nuclear Chemistry & Reactor Courses | Knowledge Hub",
+    descriptionAr: "استكشف دورات الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية بإشراف المهندس محمود إسماعيل شلتوت لطلاب الجامعات بالسعودية والخليج.",
+    descriptionEn: "Explore nuclear chemistry, reactor engineering, and radiation safety courses by Eng. Mahmoud Ismail Shaltoot for university students in the Gulf.",
   },
   simulator: {
-    ar: "محاكاة المفاعل النووي التعليمية",
-    en: "Interactive Nuclear Reactor Simulator",
-    descriptionAr: "جرّب محاكاة تعليمية مبسطة للمفاعل النووي وعوامل التحكم والتفاعلات المتسلسلة.",
-    descriptionEn: "Explore an educational reactor simulation covering control systems and nuclear chain reactions.",
+    ar: "محاكي المفاعل النووي واضمحلال النظائر | مركز المعرفة النووية",
+    en: "Interactive Nuclear Reactor & Isotope Decay Simulator",
+    descriptionAr: "جرّب المحاكاة التفاعلية لقلب المفاعل النووي (U-235) وحسابات عمر النصف واضمحلال النظائر المشعة لطلاب الهندسة والعلوم بالسعودية والخليج.",
+    descriptionEn: "Experience the interactive U-235 nuclear reactor core simulation, half-life calculations, and radioactive isotope decay for engineering students.",
   },
   instructor: {
-    ar: "المهندس محمود شلتوت | مدرب الكيمياء النووية",
-    en: "Eng. Mahmoud Shaltoot | Nuclear Chemistry Instructor",
-    descriptionAr: "تعرّف على خبرة المهندس محمود شلتوت ومجالات تدريسه في الكيمياء النووية والمفاعلات والسلامة الإشعاعية.",
-    descriptionEn: "Meet Eng. Mahmoud Shaltoot and learn about his teaching in nuclear chemistry, reactor engineering, and radiation safety.",
+    ar: "المهندس محمود إسماعيل شلتوت | مدرب الكيمياء النووية",
+    en: "Eng. Mahmoud Ismail Shaltoot | Nuclear Chemistry Tutor",
+    descriptionAr: "تعرّف على خبرة المهندس محمود إسماعيل شلتوت (+12 سنة) في تدريس الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية بالسعودية والخليج.",
+    descriptionEn: "Meet Eng. Mahmoud Ismail Shaltoot (12+ years experience) teaching nuclear chemistry, reactor engineering, and radiation safety across the Gulf.",
   },
   portal: {
-    ar: "بوابة الطالب والدروس النووية",
-    en: "Student Portal & Nuclear Science Lessons",
-    descriptionAr: "تابع الدروس والمقررات والتقدم الدراسي في بوابة مركز المعرفة النووية.",
-    descriptionEn: "Continue lessons, courses, and study progress in the Nuclear Knowledge Hub student portal.",
+    ar: "بوابة الطالب والدروس النووية | مركز المعرفة النووية",
+    en: "Student Portal & Nuclear Lessons | Nuclear Knowledge Hub",
+    descriptionAr: "تابع الدروس والمقررات والتقدم الدراسي والتمارين التفاعلية في بوابة الطالب بمركز المعرفة النووية بإشراف المهندس محمود إسماعيل شلتوت.",
+    descriptionEn: "Continue your lessons, courses, study progress, and interactive exercises in the Nuclear Knowledge Hub student portal with Eng. Mahmoud Shaltoot.",
   },
   booking: {
-    ar: "حجز جلسة تعليمية في الكيمياء النووية",
-    en: "Book a Nuclear Chemistry Learning Session",
-    descriptionAr: "احجز جلسة تعليمية فردية في الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية.",
-    descriptionEn: "Book an individual learning session in nuclear chemistry, reactor engineering, and radiation safety.",
+    ar: "حجز جلسة خاصة في الكيمياء النووية | المهندس محمود شلتوت",
+    en: "Book a 1-on-1 Nuclear Chemistry Session | Eng. Shaltoot",
+    descriptionAr: "احجز جلسة فردية 1-on-1 أو استشارة أكاديمية مباشرة مع المهندس محمود إسماعيل شلتوت في الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية.",
+    descriptionEn: "Book a private 1-on-1 tutoring session or academic consultation with Eng. Mahmoud Ismail Shaltoot in nuclear chemistry and reactor engineering.",
   },
   admin: {
-    ar: "دخول الإدارة | مركز المعرفة النووية",
-    en: "Administration Sign In | Nuclear Knowledge Hub",
-    descriptionAr: "دخول آمن لإدارة مركز المعرفة النووية.",
-    descriptionEn: "Secure sign in for Nuclear Knowledge Hub administrators.",
+    ar: "لوحة تحكم الإدارة والمشرفين | مركز المعرفة النووية",
+    en: "Administration Control Panel | Nuclear Knowledge Hub",
+    descriptionAr: "بوابة الإدارة المعتمدة للمهندس والمشرف لإدارة الحجوزات والمواعيد والدورات والتقارير الأكاديمية في مركز المعرفة النووية.",
+    descriptionEn: "Authorized administration portal for managing bookings, schedules, courses, and academic reports in the Nuclear Knowledge Hub.",
   },
 };
 
@@ -126,6 +126,7 @@ function getInitialTab(): string {
     ? window.location.pathname.slice(base.length)
     : window.location.pathname;
   const slug = pathname.replace(/^\/+|\/+$/g, "");
+  if (slug === "share") return "home";
   return Object.entries(TAB_ROUTES).find(([, route]) => route === slug)?.[0] ?? "home";
 }
 
@@ -317,25 +318,29 @@ export default function App() {
     setMeta('meta[name="keywords"]', "content", language === "ar"
       ? "الكيمياء النووية، هندسة المفاعلات، السلامة الإشعاعية، دورات نووية، تعليم جامعي، السعودية، الخليج"
       : "nuclear chemistry, reactor engineering, radiation safety, nuclear courses, university learning, Saudi Arabia, Gulf");
-    setMeta('meta[property="og:title"]', "content", title);
-    setMeta('meta[property="og:description"]', "content", description);
-    setMeta('meta[property="og:url"]', "content", window.location.href);
-    setMeta('meta[property="og:image"]', "content", new URL(appPath("/og-image.png"), window.location.origin).href);
-    setMeta('meta[name="twitter:image"]', "content", new URL(appPath("/og-image.png"), window.location.origin).href);
-    setMeta('meta[name="twitter:title"]', "content", title);
-    setMeta('meta[name="twitter:description"]', "content", description);
-    setMeta('meta[name="robots"]', "content", currentTab === "admin" || currentTab === "portal" ? "noindex, nofollow" : "index, follow");
     const base = import.meta.env.BASE_URL.endsWith("/")
       ? import.meta.env.BASE_URL
       : `${import.meta.env.BASE_URL}/`;
     const route = TAB_ROUTES[currentTab] ?? "";
+    const canonicalHref = `${window.location.origin}${base}${route}`;
+    const ogImageHref = new URL(appPath("/og-image.jpg"), window.location.origin).href;
+    setMeta('meta[property="og:title"]', "content", title);
+    setMeta('meta[property="og:description"]', "content", description);
+    setMeta('meta[property="og:url"]', "content", canonicalHref);
+    setMeta('meta[property="og:image"]', "content", ogImageHref);
+    setMeta('meta[property="og:image:secure_url"]', "content", ogImageHref);
+    setMeta('meta[property="og:image:type"]', "content", "image/jpeg");
+    setMeta('meta[name="twitter:image"]', "content", ogImageHref);
+    setMeta('meta[name="twitter:title"]', "content", title);
+    setMeta('meta[name="twitter:description"]', "content", description);
+    setMeta('meta[name="robots"]', "content", currentTab === "admin" || currentTab === "portal" ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement("link");
       canonical.rel = "canonical";
       document.head.appendChild(canonical);
     }
-    canonical.href = `${window.location.origin}${base}${route}`;
+    canonical.href = canonicalHref;
   }, [currentTab, language]);
 
   // The signed server session is the only source of account identity and role.

@@ -4,13 +4,38 @@
   "installCommand": "npm install --legacy-peer-deps",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "headers": [
+    {
+      "source": "/(og-card\\.jpg|og-banner\\.jpg|og-image\\.jpg|og-image\\.png|logo-icon\\.jpg|apple-touch-icon\\.png|favicon\\.svg|favicon\\.ico)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, must-revalidate"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     {
       "source": "/api/(.*)",
       "destination": "/api/[...path]"
     },
     {
-      "source": "/(courses|simulator|instructor|booking|portal|student-portal|gamification|community|articles|admin)",
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "v"
+        }
+      ],
+      "destination": "/api/share"
+    },
+    {
+      "source": "/(share|courses|simulator|instructor|booking|portal|student-portal|gamification|community|articles|admin)",
       "destination": "/index.html"
     }
   ]
