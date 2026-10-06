@@ -82,38 +82,10 @@ const indexPath = path.join(outputDir, "index.html");
 const rootHtml = await readFile(indexPath, "utf8");
 await mkdir(outputDir, { recursive: true });
 
-const socialImage = `${siteUrl}/og-nuclear-2026.jpg`;
-
 for (const page of pageData) {
-  let html = rootHtml.replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(page.title)}</title>`);
-  html = updateMeta(html, "name", "description", page.description);
-  html = updateMeta(html, "name", "robots", page.private ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
-  html = updateMeta(html, "property", "og:title", page.title);
-  html = updateMeta(html, "property", "og:description", page.description);
-  html = updateMeta(html, "name", "twitter:title", page.title);
-  html = updateMeta(html, "name", "twitter:description", page.description);
-  html = html.replace(
-    /<h1[^>]*>[^<]*<\/h1>/,
-    `<h1>${escapeHtml(page.title)}</h1>`,
-  );
-
-  const canonicalPath = `/${page.route}`;
-  const canonicalUrl = `${siteUrl}${canonicalPath}`;
-  const isHomeAlias = page.route === "share" || page.route === "ar";
-  html = html.replace(
-    /<link rel="canonical" href="[^"]*" \/>/,
-    `<link rel="canonical" href="${isHomeAlias ? `${siteUrl}/` : canonicalUrl}" />`,
-  );
-  html = updateMeta(html, "property", "og:url", canonicalUrl);
-  html = updateMeta(html, "property", "twitter:url", canonicalUrl);
-  html = updateMeta(html, "name", "twitter:url", canonicalUrl);
-  html = updateMeta(html, "property", "og:image", socialImage);
-  html = updateMeta(html, "property", "og:image:secure_url", socialImage);
-  html = updateMeta(html, "name", "twitter:image", socialImage);
-
   const routeDirectory = path.join(outputDir, page.route);
   await mkdir(routeDirectory, { recursive: true });
-  await writeFile(path.join(routeDirectory, "index.html"), html);
+  await writeFile(path.join(routeDirectory, "index.html"), rootHtml);
 }
 
 const publicRoutes = ["", "courses", "simulator", "instructor", "booking"];
@@ -137,16 +109,5 @@ const robots = [
 await mkdir(outputDir, { recursive: true });
 await writeFile(path.join(outputDir, "sitemap.xml"), sitemap);
 await writeFile(path.join(outputDir, "robots.txt"), robots);
-
-let html = rootHtml;
-html = html
-  .replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${siteUrl}/$2`)
-  .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${siteUrl}/?v=2026$2`);
-html = updateMeta(html, "property", "twitter:url", `${siteUrl}/?v=2026`);
-html = updateMeta(html, "name", "twitter:url", `${siteUrl}/?v=2026`);
-html = updateMeta(html, "property", "og:image", socialImage);
-html = updateMeta(html, "property", "og:image:secure_url", socialImage);
-html = updateMeta(html, "name", "twitter:image", socialImage);
-await writeFile(indexPath, html);
 
 console.info(`Generated static route SEO HTML, sitemap.xml, and robots.txt for ${siteUrl}.`);

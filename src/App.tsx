@@ -77,10 +77,10 @@ const TAB_ROUTES: Record<string, string> = {
 
 const TAB_SEO: Record<string, { ar: string; en: string; descriptionAr: string; descriptionEn: string }> = {
   home: {
-    ar: "Nuclear Knowledge Hub — مركز المعرفة النووية | م. شلتوت",
-    en: "Nuclear Knowledge Hub — Nuclear Chemistry & Reactors",
-    descriptionAr: "منصة تعليمية متخصصة في الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية بإشراف المهندس محمود إسماعيل شلتوت لطلاب الجامعات بالسعودية والخليج.",
-    descriptionEn: "Specialized educational platform in nuclear chemistry, reactor engineering, and radiation safety by Eng. Mahmoud Ismail Shaltoot for Gulf students.",
+    ar: "Nuclear Knowledge Hub --- ENG. Mahmoud Shaltoot",
+    en: "Nuclear Knowledge Hub --- ENG. Mahmoud Shaltoot",
+    descriptionAr: "منصة تعليمية متخصصة في الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية بإشراف المهندس محمود إسماعيل شلتوت لطلاب الجامعات بالسعودية .\n",
+    descriptionEn: "منصة تعليمية متخصصة في الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية بإشراف المهندس محمود إسماعيل شلتوت لطلاب الجامعات بالسعودية .\n",
   },
   courses: {
     ar: "دورات الكيمياء النووية والمفاعلات | مركز المعرفة النووية",
@@ -300,47 +300,13 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    if (currentTab === "home") {
+      document.title = "Nuclear Knowledge Hub --- ENG. Mahmoud Shaltoot";
+      return;
+    }
     const content = TAB_SEO[currentTab] ?? TAB_SEO.home;
     const title = language === "en" ? content.en : content.ar;
-    const description = language === "en" ? content.descriptionEn : content.descriptionAr;
     document.title = title;
-    const setMeta = (selector: string, attribute: string, value: string) => {
-      let element = document.head.querySelector<HTMLMetaElement>(selector);
-      if (!element) {
-        element = document.createElement("meta");
-        const [key, val] = selector.match(/\[(name|property)="([^"]+)"\]/)?.slice(1) ?? [];
-        if (key && val) element.setAttribute(key, val);
-        document.head.appendChild(element);
-      }
-      element.setAttribute(attribute, value);
-    };
-    setMeta('meta[name="description"]', "content", description);
-    setMeta('meta[name="keywords"]', "content", language === "ar"
-      ? "الكيمياء النووية، هندسة المفاعلات، السلامة الإشعاعية، دورات نووية، تعليم جامعي، السعودية، الخليج"
-      : "nuclear chemistry, reactor engineering, radiation safety, nuclear courses, university learning, Saudi Arabia, Gulf");
-    const base = import.meta.env.BASE_URL.endsWith("/")
-      ? import.meta.env.BASE_URL
-      : `${import.meta.env.BASE_URL}/`;
-    const route = TAB_ROUTES[currentTab] ?? "";
-    const canonicalHref = `${window.location.origin}${base}${route}`;
-    const ogImageHref = new URL(appPath("/og-nuclear-2026.jpg"), window.location.origin).href;
-    setMeta('meta[property="og:title"]', "content", title);
-    setMeta('meta[property="og:description"]', "content", description);
-    setMeta('meta[property="og:url"]', "content", route ? canonicalHref : `${window.location.origin}${base}?v=2026`);
-    setMeta('meta[property="og:image"]', "content", ogImageHref);
-    setMeta('meta[property="og:image:secure_url"]', "content", ogImageHref);
-    setMeta('meta[property="og:image:type"]', "content", "image/jpeg");
-    setMeta('meta[name="twitter:image"]', "content", ogImageHref);
-    setMeta('meta[name="twitter:title"]', "content", title);
-    setMeta('meta[name="twitter:description"]', "content", description);
-    setMeta('meta[name="robots"]', "content", currentTab === "admin" || currentTab === "portal" ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
-    let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.rel = "canonical";
-      document.head.appendChild(canonical);
-    }
-    canonical.href = canonicalHref;
   }, [currentTab, language]);
 
   // The signed server session is the only source of account identity and role.
