@@ -12,7 +12,7 @@ export function Footer({ onTabChange, language }: FooterProps) {
   const isEn = language === "en";
   const [copiedShareUrl, setCopiedShareUrl] = useState(false);
 
-  const freshShareUrl = "https://nuclear-chemc.vercel.app/?v=3";
+  const freshShareUrl = "https://nuclear-chemc.vercel.app/?v=2026";
   const shareTitle =
     "Nuclear Knowledge Hub — مركز المعرفة النووية | م. شلتوت";
   const shareDesc =
@@ -318,7 +318,7 @@ export function Footer({ onTabChange, language }: FooterProps) {
             {/* Direct Download Links for OG Banner & Logo */}
             <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-slate-800/80 text-xs">
               <a
-                href="/og-card.jpg"
+                href="/og-nuclear-2026.jpg"
                 download="nuclear-knowledge-hub-og-card.jpg"
                 className="inline-flex items-center gap-1.5 text-slate-300 hover:text-[#00e8f5] transition"
               >

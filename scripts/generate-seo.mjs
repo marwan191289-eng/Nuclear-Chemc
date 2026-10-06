@@ -26,6 +26,11 @@ if (
 
 const pageData = [
   {
+    route: "ar",
+    title: "Nuclear Knowledge Hub — مركز المعرفة النووية | م. شلتوت",
+    description: "منصة تعليمية متخصصة في الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية بإشراف المهندس محمود إسماعيل شلتوت لطلاب الجامعات بالسعودية والخليج.",
+  },
+  {
     route: "share",
     title: "Nuclear Knowledge Hub — مركز المعرفة النووية | م. شلتوت",
     description: "منصة تعليمية متخصصة في الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية بإشراف المهندس محمود إسماعيل شلتوت لطلاب الجامعات بالسعودية والخليج.",
@@ -77,7 +82,7 @@ const indexPath = path.join(outputDir, "index.html");
 const rootHtml = await readFile(indexPath, "utf8");
 await mkdir(outputDir, { recursive: true });
 
-const socialImage = `${siteUrl}/og-image.jpg`;
+const socialImage = `${siteUrl}/og-nuclear-2026.jpg`;
 
 for (const page of pageData) {
   let html = rootHtml.replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(page.title)}</title>`);
@@ -92,11 +97,12 @@ for (const page of pageData) {
     `<h1>${escapeHtml(page.title)}</h1>`,
   );
 
-  const canonicalPath = page.route === "share" ? "/share" : `/${page.route}`;
+  const canonicalPath = `/${page.route}`;
   const canonicalUrl = `${siteUrl}${canonicalPath}`;
+  const isHomeAlias = page.route === "share" || page.route === "ar";
   html = html.replace(
     /<link rel="canonical" href="[^"]*" \/>/,
-    `<link rel="canonical" href="${page.route === "share" ? `${siteUrl}/` : canonicalUrl}" />`,
+    `<link rel="canonical" href="${isHomeAlias ? `${siteUrl}/` : canonicalUrl}" />`,
   );
   html = updateMeta(html, "property", "og:url", canonicalUrl);
   html = updateMeta(html, "property", "twitter:url", canonicalUrl);
@@ -135,7 +141,9 @@ await writeFile(path.join(outputDir, "robots.txt"), robots);
 let html = rootHtml;
 html = html
   .replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${siteUrl}/$2`)
-  .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${siteUrl}/$2`);
+  .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${siteUrl}/?v=2026$2`);
+html = updateMeta(html, "property", "twitter:url", `${siteUrl}/?v=2026`);
+html = updateMeta(html, "name", "twitter:url", `${siteUrl}/?v=2026`);
 html = updateMeta(html, "property", "og:image", socialImage);
 html = updateMeta(html, "property", "og:image:secure_url", socialImage);
 html = updateMeta(html, "name", "twitter:image", socialImage);

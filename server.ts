@@ -1687,10 +1687,10 @@ Write in ${en ? "English" : "Arabic"}.`;
   });
 
   app.get(`${prefix}/share`, (req, res) => {
-    const vParam = typeof req.query.v === "string" && req.query.v.trim() ? req.query.v.trim() : "3";
+    const vParam = typeof req.query.v === "string" && req.query.v.trim() ? req.query.v.trim() : "2026";
     const siteOrigin = "https://nuclear-chemc.vercel.app";
     const sharePageUrl = `${siteOrigin}/?v=${encodeURIComponent(vParam)}`;
-    const shareImageUrl = `${siteOrigin}/og-image.jpg?v=${encodeURIComponent(vParam)}`;
+    const shareImageUrl = `${siteOrigin}/og-nuclear-2026.jpg?v=${encodeURIComponent(vParam)}`;
     const title = "Nuclear Knowledge Hub — مركز المعرفة النووية | م. شلتوت";
     const description =
       "منصة تعليمية متخصصة في الكيمياء النووية وهندسة المفاعلات والسلامة الإشعاعية بإشراف المهندس محمود إسماعيل شلتوت لطلاب الجامعات بالسعودية والخليج.";
@@ -1769,6 +1769,16 @@ async function startServer() {
   });
 }
 
-if (process.env.VERCEL !== "1" && process.env.NODE_TEST !== "1") {
+const isServerlessRuntime = Boolean(
+  process.env.VERCEL ||
+  process.env.VERCEL_ENV ||
+  process.env.AWS_LAMBDA_FUNCTION_NAME ||
+  process.env.NODE_TEST === "1"
+);
+const isDirectExecution =
+  Boolean(process.argv[1]) &&
+  /server\.(ts|js|mjs)$/.test(process.argv[1]);
+
+if (!isServerlessRuntime && isDirectExecution) {
   void startServer();
 }

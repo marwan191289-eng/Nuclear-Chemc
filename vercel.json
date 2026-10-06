@@ -6,7 +6,7 @@
   "outputDirectory": "dist",
   "headers": [
     {
-      "source": "/(og-card\\.jpg|og-banner\\.jpg|og-image\\.jpg|og-image\\.png|logo-icon\\.jpg|apple-touch-icon\\.png|favicon\\.svg|favicon\\.ico)",
+      "source": "/(og-nuclear-2026\\.jpg|og-card\\.jpg|og-banner\\.jpg|og-image\\.jpg|og-image\\.png|logo-icon\\.jpg|apple-touch-icon\\.png|favicon\\.svg|favicon\\.ico)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -25,17 +25,7 @@
       "destination": "/api/[...path]"
     },
     {
-      "source": "/",
-      "has": [
-        {
-          "type": "query",
-          "key": "v"
-        }
-      ],
-      "destination": "/api/share"
-    },
-    {
-      "source": "/(share|courses|simulator|instructor|booking|portal|student-portal|gamification|community|articles|admin)",
+      "source": "/(ar|share|courses|simulator|instructor|booking|portal|student-portal|gamification|community|articles|admin)",
       "destination": "/index.html"
     }
   ]

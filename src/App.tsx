@@ -126,7 +126,7 @@ function getInitialTab(): string {
     ? window.location.pathname.slice(base.length)
     : window.location.pathname;
   const slug = pathname.replace(/^\/+|\/+$/g, "");
-  if (slug === "share") return "home";
+  if (slug === "share" || slug === "ar") return "home";
   return Object.entries(TAB_ROUTES).find(([, route]) => route === slug)?.[0] ?? "home";
 }
 
@@ -323,10 +323,10 @@ export default function App() {
       : `${import.meta.env.BASE_URL}/`;
     const route = TAB_ROUTES[currentTab] ?? "";
     const canonicalHref = `${window.location.origin}${base}${route}`;
-    const ogImageHref = new URL(appPath("/og-image.jpg"), window.location.origin).href;
+    const ogImageHref = new URL(appPath("/og-nuclear-2026.jpg"), window.location.origin).href;
     setMeta('meta[property="og:title"]', "content", title);
     setMeta('meta[property="og:description"]', "content", description);
-    setMeta('meta[property="og:url"]', "content", canonicalHref);
+    setMeta('meta[property="og:url"]', "content", route ? canonicalHref : `${window.location.origin}${base}?v=2026`);
     setMeta('meta[property="og:image"]', "content", ogImageHref);
     setMeta('meta[property="og:image:secure_url"]', "content", ogImageHref);
     setMeta('meta[property="og:image:type"]', "content", "image/jpeg");
